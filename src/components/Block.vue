@@ -1,11 +1,35 @@
 <template>
-  <div class="block">Click Me!</div>
+  <div @click="handleClick" class="block" v-if="showBlock">Click Me!</div>
 </template>
 
 <script lang="ts">
-export default {
-    props: ['delay']
-}
+import { defineComponent, PropType } from 'vue'
+type Delay = number|undefined
+export default defineComponent({
+    name: 'Block',
+    props: {
+      delay: {
+        type: Object as PropType<Delay>,
+        required: true
+      }
+    },
+    data() {
+      return {
+        showBlock: false
+      }
+    },
+    methods: {
+      setShowBlock() {
+        this.showBlock = !this.showBlock
+      },
+      handleClick() {
+        
+      }
+    },
+    mounted() {
+      setTimeout(() => this.setShowBlock(), this.delay)
+    }       
+})
 </script>
 
 <style>

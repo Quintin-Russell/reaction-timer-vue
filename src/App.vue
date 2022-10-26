@@ -10,7 +10,7 @@ import Block from './components/Block.vue'
 
 interface Data {
   isPlaying: boolean;
-  delay: number|null;
+  delay: number|undefined;
 }
 
 export default defineComponent({
@@ -19,7 +19,7 @@ export default defineComponent({
   data(): Data {
     return {
       isPlaying: false,
-      delay: null
+      delay: undefined
     }
   },
   methods: {
